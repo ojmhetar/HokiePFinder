@@ -1,0 +1,42 @@
+extends layout
+
+
+block content  
+  div
+    h1.
+      Seats left: #{55 - userlist.length} 
+  div.row
+    div.col-lg-4
+    div#first.col-lg-4
+      table.table.table-striped.table-bordered
+        thead
+          tr
+            th Name 
+            th Email
+            th School
+            th Hackathon
+            th Delete
+        tbody
+          each user, i in userlist
+            tr
+              td #{user.username}
+              td #{user.email}
+              td #{user.school}
+              td #{user.hackathon}
+              td 
+                a(href='').
+                  Del
+  div.row
+    div.col-lg-4
+    div.col-lg-4
+      p Additional Info:9
+      form(name='addNote', method='post', action='/addNote')
+        textarea.form-control(rows='3', name='textinfo')
+        button.btn(type='submit').
+          Submit
+  div.row
+    div.col-lg-12(align='center')
+      a.
+        Email All
+
+

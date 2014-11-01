@@ -1,31 +1,91 @@
-
-
-
-   /* --------------------------------------
+/* --------------------------------------
       Layout
+-------------------------------------- */
 
-      -------------------------------------- */
-   h1 {
-      text-align: center;
-   }
 
-   .row #but{
-      position: absolute;
-      top: 30%;
-      text-align: center;
-   }
 
-   #myModal {
-      text-align: left;
+h1 {
+    font-family:"HelveticaNeue-UltraLight";
+    font-size:75pt;
+    color:#ffffff;
+    text-align: center;
+    margin-top: 75px;
+}
 
-   }
+h2 {
+    font-family:"HelveticaNeue-UltraLight";
+    font-size:45pt;
+    color:#ffffff;
+    margin-left:75px;
+}
 
-   .modal-body{
-      background-color:rgba(255,0,0,0.5);
-   }
+#lost-or-found {
+    font-size:20pt;
+    background:none;
+    border-radius:2px;
+    border-color:#ffffff;
+    vertical-align:middle;
+    position:relative;
+    margin:20px;
+}
 
+#form-button {
+    font-size:11pt;
+    color:#ffffff;
+    background:none;
+    border-radius:2px;
+    margin:0px;
+}
+
+/*Puts the form in the middle of the page*/
+.modal-vertical-centered {
+transform: translate(0, 50%) !important;
+-ms-transform: translate(0, 50%) !important; /* IE 9 */
+-webkit-transform: translate(0, 50%) !important; /* Safari and Chrome */
+}
+
+.modal-dialog {
+    width:415px;
+    /*background-color:rgba(255, 255, 255, 0.2);*/
+}
+
+.modal-content{
+    border-radius:3px;
+    background-color:rgba(255, 255, 255, 0.2);
+}
+
+
+input {
+    height:35px;
+    width:350px;
+    margin-bottom:15px;
+}
+
+select {
+   margin-bottom:15px; 
+}
+
+.table {
+    
+}
+
+
+.btn {
+    border-color:#ffffff;
+}
+
+/*
+IDK About this stuff
+*/
+.row #but{
+    position: inherit;
+    top: 30%;
+    text-align: center;
+}
+
+/*
    .btn {
-      box-shadow: 1px 8px 15px 0px rgba(50, 50, 50, 0.75);
+      box-shadow: 1px 2px 15px 0px rgba(50, 50, 50, 0.75);
    }
 
    #top {
@@ -33,27 +93,31 @@
       background-color:rgba(255,0,0,0.5);
       box-shadow: 1px 8px 15px 0px rgba(50, 50, 50, 0.75);
    }
-   #first {
-      text-align: center;
+*/
 
-   }
-   body{
+#first {
+    text-align: center;
+}
 
-   background-image: url(/images/random.jpg);
+body{
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    background-image: url(../../images/torg.png);
 
    /*background-image: -o-linear-gradient(right bottom, #FCF7F8 0%, #738ED4 82%);
    background-image: -moz-linear-gradient(right bottom, #FCF7F8 0%, #738ED4 82%);
    background-image: -webkit-linear-gradient(right bottom, #FCF7F8 0%, #738ED4 82%);
    background-image: -ms-linear-gradient(right bottom, #FCF7F8 0%, #738ED4 82%);
    background-image: linear-gradient(to right bottom, #FCF7F8 0%, #738ED4 82%);*/
-   }
-   th {
-      text-align: center;
-   }
+}
+
+th {
+    text-align: center;
+}
    /*#but {
       position: absolute;
       top: 50%;
    }*/
+
 
    /* --------------------------------------
       Typography
@@ -80,10 +144,34 @@
 
    /* --------------------------------------
       Media Queries
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap*/
+
+/* Small devices (tablets, 768px and up) *
+@media (min-width: @screen-sm-min) {
+         background-image: url(../../images/tokyo.jpg);
+
+}
+
+/* Medium devices (desktops, 992px and up) *
+@media (min-width: @screen-md-min) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) *
+@media (min-width: @screen-lg-min) {
+
+}
       -------------------------------------- */
 
-   /* Portrait & landscape phone */
+   /* Portrait & landscape phone */7
 
    /* Landscape phone to portrait tablet */
 
    /* Large desktop */
+
+
+
+
+
+

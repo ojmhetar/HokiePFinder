@@ -1,0 +1,33 @@
+extends layout
+
+
+block content  
+  div
+    h1.
+      Seats left: #{55 - userlist.length} 
+    p
+      -if((55 - userlist.length) < 50){var test2 = "You have been waitlisted."};
+    h1 #{test2}
+  div.row
+    div.col-lg-4
+      h1.
+        #{userSchoolCur}
+    div#first.col-lg-4
+      table.table.table-striped.table-bordered
+        thead
+          tr
+            th Name 
+            th School
+            th Hackathon
+        tbody
+          each user, i in userlist
+            tr
+              td #{user.username}
+              td #{user.school}
+              td #{user.hackathon}
+  div.row
+    div.col-lg-4
+    div.col-lg-4 
+      each infopie, i in test
+            li.
+              #{infopie.info}
