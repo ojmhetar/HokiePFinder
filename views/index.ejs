@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!-- LostHokiePassportHelp.me  -->
+
+<html>
+	<head>
+		
+		<!-- Website Title & Description for Search Engine purposes -->
+		<title>Hokie Passport Finder</title>
+		<meta name="description" content="">
+		
+		<!-- Mobile viewport optimized -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		
+		<!-- Bootstrap CSS -->
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="includes/css/bootstrap-glyphicons.css" rel="stylesheet">
+		
+		<!-- Custom CSS -->
+		<link href="includes/css/styles.css" rel="stylesheet">
+		
+		<!-- Include Modernizr in the head, before any other Javascript -->
+		<script src="includes/js/modernizr-2.6.2.min.js"></script>
+	</head>
+    
+    
+<body>
+	<div class="row" id="top">
+		<div class="col-lg-12">
+			<h1>Hokie Passport Finder</h1>
+		</div>
+	</div>
+
+<div class="row">
+
+        <!-- I found my Hokie Passport -->
+		<div class="col-lg-12" id="but">
+            
+			<a href="#found" role="button" class="btn btn-default btn-lg" id="lost-or-found" data-toggle="modal">I found a passport</a>     
+			<div class="modal fade" id="found">
+			  <div class="modal-dialog modal-vertical-centered">
+			    <div class="modal-content">
+			      <div class="modal-body">
+					<form class="form-horizontal" id="formAddUser" name="adduser" method="post" action="/passport">
+						
+                        
+							<div class="controls">
+								<input id="idnumber" type="number" placeholder="last 4 digits of passport" name="idnumber"/>
+							</div> 
+                        
+                            <div class="controls">
+                                <input id="inputBirthDate" type="date" name="date"/>
+                            </div>
+					
+							<div class="controls">
+								<input id="inputUserEmail" type="text" placeholder="where is it located now?" name="locationto"/>
+							</div>
+                        
+                            <div class="controls">
+								<input id="inputUserEmail" type="email" placeholder="your e-mail" name="contactemail"/>
+							</div>
+                        
+                            <div class="controls">
+								<input id="inputUserEmail" type="tel" placeholder="your phone #" name="contactphone"/>
+							</div>           
+                        
+			       <center> <button type="submit" class="btn btn-default btn-lg center" id="form-button">Submit</button></center>
+                </form>
+                      
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+		</div>
+    
+    <!-- I lost a Hokie Passport -->
+		<div class="col-lg-12" id="but">
+            
+			<a href="#lost" role="button" class="btn btn-default btn-lg" id="lost-or-found" data-toggle="modal">I lost my passport</a>
+            
+			<div class="modal fade" id="lost">
+			  <div class="modal-dialog modal-vertical-centered">
+			    <div class="modal-content">
+			      <div class="modal-body">
+					<form class="form-horizontal" id="formAddUser" name="adduser" method="post" action="/findme">
+						
+                        
+							<div class="controls">
+								<input id="inputDigits" type="number" placeholder="last 4 digits" name="idnumber"/>
+							</div>
+					
+							<div class="controls">
+								<input id="inputUserEmail" type="date" name="useremail"/>
+							</div>   
+                        
+<!--CHANGE THIS IF YOU WANT TO CHANGE THE RESULT!-->
+                    <a href="#foundResult" role="button" class="btn btn-default btn-lg" id="form-button" data-dismiss="modal" data-toggle="modal">Search</a>
+
+                </form>
+                      
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+		</div>
+    
+    
+<!-- The form for if it is LOST-->
+    <div class="modal fade" id="lostResult">
+        <div class="modal-dialog modal-vertical-centered">
+            <div class="modal-content">
+			     <div class="modal-body">
+             
+                    <h3>Not found yet</h3>
+                    
+                        <div class="controls">
+				            <input id="inputDigits" type="tel" placeholder="your phone #" name="digits"/>
+				        </div>
+                        <div class="controls">
+                            <input id="inputYo" type="text" placeholder="'Yo' username" name="yo"/>
+					   </div>
+                     <center>
+                       <button type="submit" class="btn btn-default btn-lg center" id="form-button">notify me</button>
+                     </center>
+                     
+			     </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    
+
+<!-- The form for if it is FOUND-->
+    <div class="modal fade" id="foundResult">
+        <div class="modal-dialog modal-vertical-centered">
+            <div class="modal-content">
+			     <div class="modal-body">
+             
+                    <h3>Results</h3>
+                     
+                     <div id="found-bold">Location:</div>
+                     <div id="found-text">Squires Student Center</div>
+                     
+                     <br> <br>
+                     <div id="found-bold">Thank:</div>
+                     <div id="found-text">Jordan White</div>
+                     <div id="found-text">(252) 227-5875</div>
+                      
+			      </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    
+</div>
+    
+    
+    
+	<script src="http://code.jquery.com/jquery.js"></script>
+	
+	<!-- If no online access, fallback to our hardcoded version of jQuery -->
+	<script>window.jQuery || document.write('<script src="includes/js/jquery-1.8.2.min.js"><\/script>')</script>
+	
+	<!-- Bootstrap JS -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- Custom JS -->
+	<script src="includes/js/script.js"></script>
+	</body>
+</html>
+
+

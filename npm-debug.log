@@ -1,0 +1,85 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'instal', 'server-static' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose node symlink /usr/bin/node
+5 verbose readDependencies using package.json deps
+6 verbose cache add [ 'server-static', null ]
+7 verbose cache add name=undefined spec="server-static" args=["server-static",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'server-static',
+8 verbose parsed url   path: 'server-static',
+8 verbose parsed url   href: 'server-static' }
+9 silly lockFile ee78d15c-server-static server-static
+10 verbose lock server-static /home/ojmhetar/.npm/ee78d15c-server-static.lock
+11 silly lockFile ee78d15c-server-static server-static
+12 silly lockFile ee78d15c-server-static server-static
+13 verbose addNamed [ 'server-static', '' ]
+14 verbose addNamed [ null, '*' ]
+15 silly lockFile 5d3fafed-server-static server-static@
+16 verbose lock server-static@ /home/ojmhetar/.npm/5d3fafed-server-static.lock
+17 silly addNameRange { name: 'server-static', range: '*', hasData: false }
+18 verbose request where is /server-static
+19 verbose request registry https://registry.npmjs.org/
+20 verbose request id a1a94b4daae6e583
+21 verbose url raw /server-static
+22 verbose url resolving [ 'https://registry.npmjs.org/', './server-static' ]
+23 verbose url resolved https://registry.npmjs.org/server-static
+24 verbose request where is https://registry.npmjs.org/server-static
+25 info trying registry request attempt 1 at 20:01:28
+26 http GET https://registry.npmjs.org/server-static
+27 http 404 https://registry.npmjs.org/server-static
+28 verbose headers { date: 'Sun, 02 Nov 2014 00:01:28 GMT',
+28 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 verbose headers   'content-type': 'application/json',
+28 verbose headers   'cache-control': 'max-age=0',
+28 verbose headers   'content-length': '52',
+28 verbose headers   'accept-ranges': 'bytes',
+28 verbose headers   via: '1.1 varnish',
+28 verbose headers   age: '0',
+28 verbose headers   'x-served-by': 'cache-atl6234-ATL',
+28 verbose headers   'x-cache': 'MISS',
+28 verbose headers   'x-cache-hits': '0',
+28 verbose headers   'x-timer': 'S1414886488.550750,VS0,VE25',
+28 verbose headers   'keep-alive': 'timeout=10, max=50',
+28 verbose headers   connection: 'Keep-Alive' }
+29 silly registry.get cb [ 404,
+29 silly registry.get   { date: 'Sun, 02 Nov 2014 00:01:28 GMT',
+29 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+29 silly registry.get     'content-type': 'application/json',
+29 silly registry.get     'cache-control': 'max-age=0',
+29 silly registry.get     'content-length': '52',
+29 silly registry.get     'accept-ranges': 'bytes',
+29 silly registry.get     via: '1.1 varnish',
+29 silly registry.get     age: '0',
+29 silly registry.get     'x-served-by': 'cache-atl6234-ATL',
+29 silly registry.get     'x-cache': 'MISS',
+29 silly registry.get     'x-cache-hits': '0',
+29 silly registry.get     'x-timer': 'S1414886488.550750,VS0,VE25',
+29 silly registry.get     'keep-alive': 'timeout=10, max=50',
+29 silly registry.get     connection: 'Keep-Alive' } ]
+30 silly lockFile 5d3fafed-server-static server-static@
+31 silly lockFile 5d3fafed-server-static server-static@
+32 error 404 404 Not Found: server-static
+32 error 404
+32 error 404 'server-static' is not in the npm registry.
+32 error 404 You should bug the author to publish it
+32 error 404 It was specified as a dependency of 'application-name'
+32 error 404
+32 error 404 Note that you can also install from a
+32 error 404 tarball, folder, or http url, or git url.
+33 error System Linux 3.13.0-37-generic
+34 error command "/usr/bin/node" "/usr/bin/npm" "instal" "server-static"
+35 error cwd /home/ojmhetar/Projects/HokiePFinder
+36 error node -v v0.10.32
+37 error npm -v 1.4.28
+38 error code E404
+39 verbose exit [ 1, true ]

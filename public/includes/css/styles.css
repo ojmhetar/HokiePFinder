@@ -3,10 +3,11 @@
 -------------------------------------- */
 
 
-
+/* for the top of the page*/
 h1 {
     font-family:"HelveticaNeue-UltraLight";
-    font-size:75pt;
+    font-kerning:normal;
+    font-size:65pt;
     color:#ffffff;
     text-align: center;
     margin-top: 75px;
@@ -19,8 +20,20 @@ h2 {
     margin-left:75px;
 }
 
-#lost-or-found {
+/*for the results page*/
+h3 {
+    font-family:"HelveticaNeue-Light";
+    text-align:center;
     font-size:20pt;
+    color:#ffffff;
+    margin:15px;
+}
+
+
+
+/* the button for "I found" & "I lost"*/
+#lost-or-found {
+    font-size:15pt;
     background:none;
     border-radius:2px;
     border-color:#ffffff;
@@ -29,13 +42,41 @@ h2 {
     margin:20px;
 }
 
+/* Search & submit buttons on the forms  */
 #form-button {
     font-size:11pt;
     color:#ffffff;
     background:none;
-    border-radius:2px;
+    border-radius:1px;
+    border-color:#ffffff;
+    border-collapse:separate;
     margin:0px;
 }
+
+
+/* The found info*/
+#found-bold {
+    font-family:"HelveticaNeue";
+    text-align:left;
+    font-size: 14pt;
+    margin: 3px;
+    color:#ffffff;
+}
+
+#found-text {
+    font-family: "HelveticaNeue-Light";
+    font-size:12pt;
+    color:#ffffff;
+    margin: 3px;
+}
+
+.results {
+    
+    font-family:"HelveticaNeue";
+    font-size:12pt;
+    
+}
+
 
 /*Puts the form in the middle of the page*/
 .modal-vertical-centered {
@@ -101,7 +142,7 @@ IDK About this stuff
 
 body{
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    background-image: url(../../images/torg.png);
+    background-image: url(../../images/torg2.png);
 
    /*background-image: -o-linear-gradient(right bottom, #FCF7F8 0%, #738ED4 82%);
    background-image: -moz-linear-gradient(right bottom, #FCF7F8 0%, #738ED4 82%);
