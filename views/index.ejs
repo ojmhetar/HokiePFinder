@@ -81,7 +81,7 @@
 			  <div class="modal-dialog modal-vertical-centered">
 			    <div class="modal-content">
 			      <div class="modal-body">
-					<form class="form-horizontal" id="formAddUser" name="adduser" method="post" action="/findme">
+					<form class="form-horizontal" id="formAddUser" name="adduser" method="post" action="/findmine">
 						
                         
 							<div class="controls">
@@ -93,7 +93,7 @@
 							</div>   
                         
 <!--CHANGE THIS IF YOU WANT TO CHANGE THE RESULT!-->
-                    <a href="#foundResult" role="button" class="btn btn-default btn-lg" id="form-button" data-dismiss="modal" data-toggle="modal">Search</a>
+                    <a href="/results" role="button" class="btn btn-default btn-lg" id="form-button" data-dismiss="modal" data-toggle="modal">Search</a>
 
                 </form>
                       
@@ -137,7 +137,7 @@
                     <h3>Results</h3>
                      
                      <div id="found-bold">Location:</div>
-                     <div id="found-text">Squires Student Center</div>
+                     <div id="found-text"><%= docs[0].contactemail %></div>
                      
                      <br> <br>
                      <div id="found-bold">Thank:</div>

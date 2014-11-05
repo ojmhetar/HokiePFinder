@@ -25,20 +25,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
-//DEPRECATED
-app.get('/', routes.index);
-/*
-app.get('/users', user.list);i
-app.get('/homeOld', function(req, res) {
-	res.sendfile(__dirname + '/public/index.html');
-});
-app.get('/found', routes.found);
-app.get('/lost', routes.lost);
-app.get('/results', routes.results);
 
-app.get('/thanks', routes.thanks);
-*/
-//DEPRECATED
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+
+//Note Needed
+app.get('/', routes.index);
+
 router.get('/sample', function(req, res) {
 	res.send('this is a sample!');	
 });
@@ -54,7 +47,7 @@ router.route('/passport')
                 passport.contactemail = req.body.contactemail;
                 passport.contactphone = req.body.contactphone;
 
-                recpie.save(function(err){
+                passport.save(function(err){
                         if(err)
                                 res.send(err);
 
@@ -76,13 +69,20 @@ router.route('/findmine')
 		Passport.find(idnum, function(err, entries) {
 			if(err)
 				res.send(err); 
-			res.json(entries); 
+			//res.json(entries); 
+            res.render('results', {resultQy: entries});
 		});
 	});
 
 router.route('/home')
         .get(function(req, res) {
-                res.render('index', { title: 'The index page!' })
+            Passport.find(function(err, entries) {
+                if(err)
+                    res.send(err); 
+                //res.json(entries); 
+                console.log(entries[1].contactemail);
+                res.render('index', {docs: entries});
+            });
         });
 
 app.use('/', router); 
