@@ -64,17 +64,32 @@ router.route('/passport')
 
 router.route('/findmine')
 	.post(function(req, res) {
-		var idnum = req.body.idnumber;
-		Passport.findOne({id: idnum}, function(err, entries) {
-			if(err)
+		var idnum = req.body.idnum;
+        console.log(idnum);
+		Passport.findOne({idnumber: idnum}, function(err, entry) {
+			if(err) {
 				res.send(err); 
+            } 
 
-            //res.render('results', {docs: entries});
+            if(entry == null) {
+
+                res.render('notfound');
+
+            }
+            console.log(entry.contactphone);
+            //res.render('index', {info: entry});
+            res.render('results', {info: entry});
 		});
 	});
 
 router.route('/home')
         .get(function(req, res) {
+            /*var passport = new Passport();
+                passport.idnumber = 000000;
+                passport.date = "24/23/24";
+                passport.loc = "NotFoundYet";
+                passport.contactemail = "notfound@gmail.com";
+                passport.contactphone = "34590234920";*/
             Passport.find(function(err, entries) {
                 if(err)
                     res.send(err); 
