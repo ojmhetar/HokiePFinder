@@ -43,7 +43,7 @@ router.route('/passport')
                 var passport = new Passport();
                 passport.idnumber = req.body.idnumber;
                 passport.date = req.body.date;
-                passport.locationto = req.body.locationto;
+                passport.loc = req.body.loc;
                 passport.contactemail = req.body.contactemail;
                 passport.contactphone = req.body.contactphone;
 
@@ -57,7 +57,6 @@ router.route('/passport')
         .get(function(req, res) {
                 Passport.find(function(err, entries) {
                         if (err)
-                                res.send(err);
 
                         res.json(entries);
                 });
@@ -70,7 +69,8 @@ router.route('/findmine')
 			if(err)
 				res.send(err); 
 			//res.json(entries); 
-            res.render('results', {resultQy: entries});
+            console.log(entries[1].contactemail);
+            res.render('results', {docs: entries});
 		});
 	});
 
@@ -80,7 +80,6 @@ router.route('/home')
                 if(err)
                     res.send(err); 
                 //res.json(entries); 
-                console.log(entries[1].contactemail);
                 res.render('index', {docs: entries});
             });
         });
