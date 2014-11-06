@@ -65,11 +65,10 @@ router.route('/passport')
 router.route('/findmine')
 	.post(function(req, res) {
 		var idnum = req.body.idnumber;
-		Passport.find(idnum, function(err, entries) {
+		Passport.findOne({id: idnum}, function(err, entries) {
 			if(err)
 				res.send(err); 
-			//res.json(entries); 
-            console.log(entries[1].contactemail);
+			
             res.render('results', {docs: entries});
 		});
 	});
