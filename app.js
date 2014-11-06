@@ -68,8 +68,8 @@ router.route('/findmine')
 		Passport.findOne({id: idnum}, function(err, entries) {
 			if(err)
 				res.send(err); 
-			
-            res.render('results', {docs: entries});
+
+            //res.render('results', {docs: entries});
 		});
 	});
 
