@@ -15,7 +15,7 @@ var Passport = require('./models/Passport.js');
 var app = express();
 
 var mongoose = require('mongoose'); 
-mongoose.connect('mongodb://iamking:kingo@ds035260.mongolab.com:35260/mealking');
+//mongoose.connect('mongodb://iamking:kingo@ds035260.mongolab.com:35260/mealking');
 
 var router = express.Router(); 
 

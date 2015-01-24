@@ -148,7 +148,11 @@ IDK About this stuff
 
 body{
     font-family: 'Open Sans', sans-serif;
-    background-image: url(../../images/torg2.png);
+    background: url(../../images/torg2.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
    /*background-image: -o-linear-gradient(right bottom, #FCF7F8 0%, #738ED4 82%);
    background-image: -moz-linear-gradient(right bottom, #FCF7F8 0%, #738ED4 82%);
