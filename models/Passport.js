@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var PassportSchema = new Schema({
 	idnumber: Number,
-	date: String,  
+	lastname: String,  
 	loc: String, 
 	contactemail: String,
 	contactphone: String, 

@@ -73,6 +73,7 @@ h3 {
     font-size:12pt;
     color:#ffffff;
     margin: 3px;
+    text-align: center;
 }
 
 .results {
@@ -98,7 +99,7 @@ transform: translate(0, 50%) !important;
 
 .modal-content{
     border-radius:3px;
-    background-color:rgba(255, 255, 255, 0.2);
+    background-color:rgba(255, 255, 255, 0.8);
 }
 
 

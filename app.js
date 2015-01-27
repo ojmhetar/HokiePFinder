@@ -15,7 +15,7 @@ var Passport = require('./models/Passport.js');
 var app = express();
 
 var mongoose = require('mongoose'); 
-//mongoose.connect('mongodb://iamking:kingo@ds035260.mongolab.com:35260/mealking');
+mongoose.connect('mongodb://iamking:kingo@ds035260.mongolab.com:35260/mealking');
 
 var router = express.Router(); 
 
@@ -42,16 +42,16 @@ router.route('/passport')
         .post(function(req, res){
                 var passport = new Passport();
                 passport.idnumber = req.body.idnumber;
-                passport.date = req.body.date;
-                passport.loc = req.body.loc;
+                passport.lastname = req.body.lastname;
+                //passport.loc = req.body.loc;
                 passport.contactemail = req.body.contactemail;
-                passport.contactphone = req.body.contactphone;
+                //passport.contactphone = req.body.contactphone;
 
                 passport.save(function(err){
                         if(err)
                                 res.send(err);
 
-                        res.json({ message: 'Entry Added!' });
+                        res.render('entryadded');
                 });
         })
         .get(function(req, res) {
@@ -65,8 +65,9 @@ router.route('/passport')
 router.route('/findmine')
 	.post(function(req, res) {
 		var idnum = req.body.idnum;
+        var lastnamelost = req.body.lastnamelost;
         console.log(idnum);
-		Passport.findOne({idnumber: idnum}, function(err, entry) {
+		Passport.findOne({idnumber: idnum, lastname: lastnamelost}, function(err, entry) {
 			if(err) {
 				res.send(err); 
             } 
@@ -76,9 +77,10 @@ router.route('/findmine')
                 res.render('notfound');
 
             }
-            console.log(entry.contactphone);
-            //res.render('index', {info: entry});
-            res.render('results', {info: entry});
+            else {
+                //res.render('index', {info: entry});
+               res.render('results', {info: entry});
+            }
 		});
 	});
 
