@@ -6,7 +6,7 @@ var PassportSchema = new Schema({
 	lastname: String,  
 	loc: String, 
 	contactemail: String,
-	contactphone: String, 
+	contactphone: String, 	
 });
 
 module.exports = mongoose.model('Passport', PassportSchema); 
