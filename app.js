@@ -6,18 +6,20 @@
 var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
-var path = require('path'); 
-var bodyParser = require('body-parser'); 
-var http = require('http'); 
+var path = require('path');
+var bodyParser = require('body-parser');
+var http = require('http');
+var sendgrid = require("sendgrid")(process.env.SGUSER, process.env.SGKEY);
+var email = new sendgrid.Email();
 
-var Passport = require('./models/Passport.js'); 
+var Passport = require('./models/Passport.js');
 
 var app = express();
 
-var mongoose = require('mongoose'); 
+var mongoose = require('mongoose');
 mongoose.connect('mongodb://iamking:kingo@ds035260.mongolab.com:35260/mealking');
 
-var router = express.Router(); 
+var router = express.Router();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -33,7 +35,7 @@ app.use(bodyParser.urlencoded());
 app.get('/', routes.index);
 
 router.get('/sample', function(req, res) {
-	res.send('this is a sample!');	
+	res.send('this is a sample!');
 });
 
 
@@ -41,22 +43,65 @@ router.route('/passport')
 
         .post(function(req, res){
                 var passport = new Passport();
+								var idnum = req.body.idnumber;
+								var lastnamelost = req.body.lastname;
                 passport.idnumber = req.body.idnumber;
                 passport.lastname = req.body.lastname;
                 //passport.loc = req.body.loc;
                 passport.contactemail = req.body.contactemail;
                 //passport.contactphone = req.body.contactphone;
 
-                passport.save(function(err){
-                        if(err)
-                                res.send(err);
+								//If this entry already exists in the table, check if it has
+								//an owner email, if not, save it.
+								Passport.findOne({idnumber: idnum, lastname: lastnamelost}, function(err, entry) {
+									if(err) {
+										res.send(err);
+												}
 
-                        res.render('entryadded');
-                });
+												if(entry == null) {
+
+													passport.save(function(err){
+																	if(err)
+																					res.send(err);
+
+																	res.render('entryadded');
+													});
+
+												}
+												else {
+
+
+														if (entry.owneremail != null) {
+
+															email.addTo(entry.owneremail);
+															email.setFrom("HokiePFinder");
+															email.setSubject("Some one has found your passport!");
+															email.setHtml("Contact this person: " + entry.owneremail);
+
+															sendgrid.send(email, function(err, json) {
+																if (err) {
+																	return console.error(err);
+																	}
+																	console.log(json);
+															});
+															res.render('entryadded');
+
+
+														}
+														else {
+															res.render('entryadded');
+														}
+
+
+												}
+								});
+
+
         })
         .get(function(req, res) {
                 Passport.find(function(err, entries) {
                         if (err)
+
 
                         res.json(entries);
                 });
@@ -66,15 +111,25 @@ router.route('/findmine')
 	.post(function(req, res) {
 		var idnum = req.body.idnum;
         var lastnamelost = req.body.lastnamelost;
+				var owneremail = req.body.owneremail;
         console.log(idnum);
 		Passport.findOne({idnumber: idnum, lastname: lastnamelost}, function(err, entry) {
 			if(err) {
-				res.send(err); 
-            } 
+				res.send(err);
+            }
 
             if(entry == null) {
+							var passport = new Passport();
+							passport.idnumber = idnum;
+							passport.lastname = lastnamelost;
+							passport.owneremail = owneremail;
 
-                res.render('notfound');
+							passport.save(function(err){
+											if(err)
+															res.send(err);
+
+										  res.render('notfound');
+							});
 
             }
             else {
@@ -86,21 +141,15 @@ router.route('/findmine')
 
 router.route('/home')
         .get(function(req, res) {
-            /*var passport = new Passport();
-                passport.idnumber = 000000;
-                passport.date = "24/23/24";
-                passport.loc = "NotFoundYet";
-                passport.contactemail = "notfound@gmail.com";
-                passport.contactphone = "34590234920";*/
             Passport.find(function(err, entries) {
                 if(err)
-                    res.send(err); 
-                //res.json(entries); 
+                    res.send(err);
+                //res.json(entries);
                 res.render('index', {docs: entries});
             });
         });
 
-app.use('/', router); 
+app.use('/', router);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

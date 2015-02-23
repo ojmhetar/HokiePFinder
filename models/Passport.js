@@ -1,13 +1,13 @@
-var mongoose = require('mongoose'); 
-var Schema = mongoose.Schema; 
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var PassportSchema = new Schema({
 	idnumber: Number,
-	lastname: String,  
-	loc: String, 
+	lastname: String,
+	loc: String,
 	contactemail: String,
-	contactphone: String, 	
+	contactphone: String,
+	owneremail: String,	
 });
 
-module.exports = mongoose.model('Passport', PassportSchema); 
- 
+module.exports = mongoose.model('Passport', PassportSchema);
