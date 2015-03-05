@@ -44,6 +44,7 @@ router.route('/passport')
         .post(function(req, res){
                 var passport = new Passport();
 								var idnum = req.body.idnumber;
+								var contactemail = req.body.contactemail;
 								var lastnamelost = req.body.lastname;
                 passport.idnumber = req.body.idnumber;
                 passport.lastname = req.body.lastname;
@@ -76,7 +77,7 @@ router.route('/passport')
 															email.addTo(entry.owneremail);
 															email.setFrom("HokiePFinder");
 															email.setSubject("Some one has found your passport!");
-															email.setHtml("Contact this person: " + entry.owneremail);
+															email.setHtml("Contact this person: " + contactemail);
 
 															sendgrid.send(email, function(err, json) {
 																if (err) {
