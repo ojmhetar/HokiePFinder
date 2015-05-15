@@ -17,7 +17,7 @@ var Passport = require('./models/Passport.js');
 var app = express();
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://iamking:king@ds051851.mongolab.com:51851/hokiepfinder');
+mongoose.connect(process.env.DBSOURCE);
 
 var router = express.Router();
 
@@ -70,6 +70,12 @@ router.route('/passport')
 
 												}
 												else {
+
+														entry.contactemail = contactemail;
+														entry.save(function(err){
+																	if(err)
+																					res.send(err);
+														});
 
 
 														if (entry.owneremail != null) {
@@ -135,11 +141,7 @@ router.route('/findmine')
             }
             else {
 
-							entry.contactemail = lastnamelost;
-							entry.save(function(err){
-											if(err)
-															res.send(err);
-							});
+
 
 							res.render('results', {info: entry});
 
