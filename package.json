@@ -3,7 +3,7 @@
   "main": "app.js",
   "engines": {
 	"node":	"5.8"
-  } 
+  }, 
   "dependencies": {
     "body-parser": "^1.15.0",
     "ejs": "*",
