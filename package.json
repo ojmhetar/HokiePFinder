@@ -1,12 +1,12 @@
 {
-	"name": "node-api",
-	"main": "app.js",
-	"dependencies": {
-		"express": "*",
-		"mongoose": "*",
-		"body-parser": "*",
-		"sendgrid": "*",
-		"ejs": "*"
-	}
+  "name": "node-api",
+  "main": "app.js",
+  "engines": "4.1.1", 
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "ejs": "*",
+    "express": "*",
+    "mongoose": "*",
+    "sendgrid": "*"
+  }
 }
-
