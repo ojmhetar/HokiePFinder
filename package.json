@@ -1,7 +1,9 @@
 {
   "name": "node-api",
   "main": "app.js",
-  "engines": "4.1.1", 
+  "engines": {
+	"node":	"5.8"
+  } 
   "dependencies": {
     "body-parser": "^1.15.0",
     "ejs": "*",
